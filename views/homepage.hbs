@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="./homepage.css">
+    <script src="./script.js" defer></script>
+    <style>
+        * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: unset;
+}
+ul {
+    list-style:none; 
+}
+.actions-list {
+    background: linear-gradient(to right,rgba(0,1,1,0.8), #780000);
+    display: flex; 
+    justify-content:space-around;
+    font-size: 2rem;
+    color: white;
+    padding: 20px 0;
+}
+.client-list {
+    display: flex;
+    justify-content: center;
+}
+.client-item {
+    padding: 40px;
+    margin: 10px;    
+    border: 2px solid black;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.5rem;
+}
+.client-header {
+    padding: 40px;
+    margin: 10px;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.5rem;
+}
+
+.client-item p {
+    padding: 0 5px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Shmeckle bank</h1>
+        <h2>Welcome Admin</h2>
+    </header>
+    <nav>
+        <ul class="actions-list" style="">
+            <li class="action-item"><a href="/api/add">add client</a></li>
+            <li class="action-item"><a href="/api/transfer">transfer between clients</a></li>
+            <li class="action-item"><a href="/api/filter">filter clients</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Clients</h2>
+        <ul class="client-list">
+            <li class="client-header"><p>ID</p><p>Full Name</p></li>
+            {{#each clients}}
+             <a href="/api/{{../prefix}}{{passportId}}"><li class="client-item"> {{../prefix}}<p>{{passportId}}</p> <p>{{fullName}}</p> </li></a>
+             {{/each}}
+        </ul>
+    </main>
+
+    
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}|transfer between clients</title>
+</head>
+<body>
+    <a class="home-link" href="/api/">Home</a>
+    <h3>Transfer Shmeckles</h3>
+    <form method="POST">
+        <label for="fromId">take shmeckles from</label>
+        <input type="text" placeholder="client ID" id="fromId" name="fromId">
+        <label for="toId">And transfer them to</label>
+        <input type="text" placeholder="client ID" id="toId" name="toId">
+        <label for="amount">Amount of Shmeckles</label>
+        <input type="number" name="amount" id="amount">
+        <input type="submit" value="Transfer">
+    </form>
+
+    <h2>{{message}}</h2>    
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}|Filter</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <a class="home-link" href="/api/">Home</a>
+    <form method="POST">
+        <label for="filter">choose filter category</label>
+        <select onchange="handleChange(this)" name="category" id="filter">
+            <option disabled selected value="">Choose category</option>
+            <option value="active">only active</option>
+            <option value="rich">min amount of Shmeckles</option>
+            <option value="poor">max amount of Shmeckles</option>
+        </select>
+        <label class="hidden rich" for="rich">
+            Minimum amount of Shmeckles
+            <input type="number" name="moreThan" id="rich">
+        </label>
+        <label class="hidden poor" for="poor">
+            Maximum amount of Shmeckles
+            <input type="number" name="lessThan" id="poor">
+        </label>
+        <input type="submit" value="Filter">
+    </form>
+
+    <div class="result-container">
+        <ul class="client-list">
+            <li class="client-header">
+                <p>ID</p>
+                <p>Full Name</p>
+            </li>
+            {{#each results}}
+            <a href="/api/{{../prefix}}{{passportId}}">
+                <li class="client-item"><p> {{../prefix}}</p><p>{{passportId}}</p>
+                    <p> {{../prefix}}</p><p>{{fullName}}</p>
+                    <p> {{../prefix}}</p><p>{{cash}}</p>
+                    <p>{{credit}}</p>
+                    <p>{{isActive}}</p>
+                </li>
+            </a>
+            {{/each}}
+        </ul>
+    
+    </div>
+
+    <script>
+        const handleChange = e => {
+            if (e.value === 'rich') {
+                document.querySelector(`.rich`).classList.remove('hidden')
+                document.querySelector(`.poor`).classList.add('hidden')
+            } else if (e.value === 'poor') {
+                document.querySelector(`.rich`).classList.add('hidden')
+                document.querySelector(`.poor`).classList.remove('hidden')
+            } else {
+                document.querySelector(`.rich`).classList.add('hidden')
+                document.querySelector(`.poor`).classList.add('hidden')
+            }
+        }
+    </script>
+</body>
+
+</html>

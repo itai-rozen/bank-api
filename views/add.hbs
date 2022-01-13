@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}|Add client</title>
+</head>
+<body>
+
+    <a class="home-link" href="/api/">Home</a>
+    <h2>Add a shmeckle client</h2>
+    <form method="post">
+        <label for="fullname">Full Name</label>
+        <input id="fullname" name="fullname" type="text">
+        <label for="id">ID</label>
+        <input id="id" name="id" type="text">
+        <label for="cash">Cash</label>
+        <input id="cash" name="cash" type="number">
+        <label for="credit">Credit</label>
+        <input id="credit" name="credit" type="number">
+        <label for="active">active?</label>
+        <input type="checkbox" name="isActive" id="active">
+        <input type="submit" value="Add">
+    </form>
+
+    <h3>{{message}}</h3>
+    
+</body>
+</html>
