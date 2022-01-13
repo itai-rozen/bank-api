@@ -51,6 +51,7 @@
     <h1>Client details</h1>
         <a href="/api">Home</a>
     <div class="client-card">
+        <form action="/api/{{client.passportId}}/delete" method="POST"><input type="submit" value="X"></form>
         <div class="header-container">
         <h3>
         {{client.fullName}}
@@ -68,7 +69,7 @@
         {{client.credit}} 
         </p>
         <p>Active status: 
-        {{client.isActive ? 'active' : 'Not active'}} 
+        {{client.isActive}}
         </p>
         <div class="links-container">
         <a href="/api/{{client.passportId}}/withdraw">Withdraw from client</a>

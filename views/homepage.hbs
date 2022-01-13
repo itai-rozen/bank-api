@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
     <link rel="stylesheet" href="./homepage.css">
-    <script src="./script.js" defer></script>
     <style>
         * {
     padding: 0;
@@ -30,6 +29,8 @@ ul {
 }
 .client-list {
     display: flex;
+    width: 100%;
+    flex-wrap: wrap;
     justify-content: center;
 }
 .client-item {
@@ -39,7 +40,7 @@ ul {
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
     font-size: 1.5rem;
 }
@@ -73,9 +74,8 @@ ul {
     <main>
         <h2>Clients</h2>
         <ul class="client-list">
-            <li class="client-header"><p>ID</p><p>Full Name</p></li>
             {{#each clients}}
-             <a href="/api/{{../prefix}}{{passportId}}"><li class="client-item"> {{../prefix}}<p>{{passportId}}</p> <p>{{fullName}}</p> </li></a>
+             <a href="/api/{{../prefix}}{{passportId}}"><li class="client-item"> {{../prefix}}<p>ID: {{passportId}}</p> <p>Full Name: {{fullName}}</p> </li></a>
              {{/each}}
         </ul>
     </main>

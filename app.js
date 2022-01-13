@@ -50,7 +50,6 @@ const updateClient = (id, updateType,amount = 0) => {
 // show users
 app.get('/api', (req,res) => {
     const clients = loadData()
-    
     res.render('homepage',{title:'Shmeckle Bank', clients: clients})
 })
 // add user
@@ -68,7 +67,7 @@ app.post('/api/add', (req,res) => {
         fullName: fullname,
         cash: +cash || 0,
         credit: +credit || 0,
-        isActive: isActive
+        isActive: isActive ? true: false
     }
     clients.push(newClient)
     saveData(clients)
@@ -170,6 +169,15 @@ app.post('/api/:id/updateCredit', (req,res) => {
     const { amount : newCredit } = req.body
     const isUpdated = updateClient(id,'credit', newCredit)
     if (isUpdated) res.render('client-actions', {title:'Shmeckle Bank',id:id,action:'update  credit with', message: `client with the id  ${id} new credit is ${newCredit} shmeckles` })
+})
+
+app.post('/api/:id/delete', (req,res) => {
+    const { id } = req.params
+    const clients = loadData()
+    const clientIdx = clients.findIndex(client => client.passportId === id)
+    clients.splice(clientIdx,1)
+    saveData(clients)
+    res.redirect('/api/')
 })
 
 
