@@ -1,0 +1,14 @@
+.add-container {
+    height: 100%;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+}
+
+.message {
+    margin: 5px;
+}

@@ -1,0 +1,19 @@
+.filter-container {
+    display: flex;
+
+}
+
+.client-list {
+    width: 100%;
+}
+.client-item {
+    padding: 30px 40px;
+}
+.client-item p {
+    margin: 2px 0;
+    font-size: 1rem;
+}
+
+.green {
+    background-color: green;
+}

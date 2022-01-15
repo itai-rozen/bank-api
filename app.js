@@ -3,10 +3,12 @@ const fs = require('fs')
 const cors = require('cors')
 const path = require('path')
 const app = express()
+const xpbs = require('express-handlebars')
 app.use(cors())
 app.use(express.json())
-app.set('view engine', 'hbs')
 app.use(express.urlencoded({ extended: true }))
+
+app.set('view engine', 'hbs')
 const PORT = 4321
 app.use(express.static(path.join(__dirname, '/public')))
 
@@ -50,7 +52,7 @@ const updateClient = (id, updateType,amount = 0) => {
 // show users
 app.get('/api', (req,res) => {
     const clients = loadData()
-    res.render('homepage',{title:'Shmeckle Bank', clients: clients})
+    res.render('homepage',{style:'homepage.css',title:'Shmeckle Bank', clients: clients})
 })
 // add user
 app.get('/api/add', (req,res) => {
@@ -114,7 +116,7 @@ app.post('/api/filter', (req,res) => {
 app.get('/api/:id',(req,res) => {
     const { id } = req.params
     const chosenClient = getClient(id)
-    if (chosenClient) res.render('details',{client:chosenClient})
+    if (chosenClient) res.render('details',{ style:'details.css', client:chosenClient})
     else res.status(400).send('client doesnt exist')
 })
 

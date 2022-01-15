@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}|Add client</title>
+    <link rel="stylesheet" href="/css/homepage.css">
+    <link rel="stylesheet" href="/css/add.css">
 </head>
+
 <body>
+    <div class="add-container">
 
-    <a class="home-link" href="/api/">Home</a>
-    <h2>Add a shmeckle client</h2>
-    <form method="post">
-        <label for="fullname">Full Name</label>
-        <input id="fullname" name="fullname" type="text">
-        <label for="id">ID</label>
-        <input id="id" name="id" type="text">
-        <label for="cash">Cash</label>
-        <input id="cash" name="cash" type="number">
-        <label for="credit">Credit</label>
-        <input id="credit" name="credit" type="number">
-        <label for="active">active?</label>
-        <input type="checkbox" checked name="isActive" id="active">
-        <input type="submit" value="Add">
-    </form>
+        <a class="home-link" href="/api/">Home</a>
+        <h1>Add a shmeckle client</h1>
+        <div class="form-container">
 
-    <h3>{{message}}</h3>
-    
+            <form method="post">
+                <label for="fullname">Full Name</label>
+                <input id="fullname" autocomplete="off" name="fullname" type="text">
+                <label for="id">ID</label>
+                <input id="id" name="id" autocomplete="off" type="text">
+                <label for="cash">Cash</label>
+                <input id="cash" name="cash" autocomplete="off" type="number">
+                <label for="credit">Credit</label>
+                <input id="credit" name="credit" autocomplete="off" type="number">
+                <label for="active">active?</label>
+                <div class="checkbox-container">
+                    <h3 class="message">{{message}}</h3>
+                    <input class="checkbox" type="checkbox" checked name="isActive" id="active">
+                    <label for="active" class="checkbox-style"></label>
+                </div>
+                <input type="submit" value="Add">
+            </form>
+        </div>
+    </div>
+
 </body>
+
 </html>

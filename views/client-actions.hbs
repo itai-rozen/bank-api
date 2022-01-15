@@ -1,53 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}|Client actions</title>
+    <link rel="stylesheet" href="/css/homepage.css">
+    <link rel="stylesheet" href="/css/actions.css">
     <style>
-        body {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-        }
-        .client-form {
-            border: 2px solid black;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            padding: 10px;
-            font-size: 3rem;
-        }
-        .message {
-            font-size: 3.5rem;
-            color: red;
-        }
-        a {
-            text-decoration: none;
-            color: unset;
-        }
+
+
+
+
+
     </style>
 </head>
-<body>
-    <h1>
-    {{action}}
-    </h1>
-    <form class="client-form" method="POST">
-        <label for="cash">Amount of shmeckles you want to {{action}}</label>
-        <input type="number" name="amount" id="cash">
-        <input type="submit" value={{action}}>
-    </form>
 
-    <h3 class="message">{{message}}</h3>
-    <div class="links-container">
-    <a href="/api/">Home</a>
-    <a href="/api/{{id}}">back to client details</a>
+<body>
+    <div class="actions-container">
+        <h1>
+            {{action}}
+        </h1>
+        <form class="client-form" method="POST">
+            <label for="cash">Amount of shmeckles you want to {{action}}</label>
+            <input type="number" name="amount" id="cash">
+            <input type="submit" value={{action}}>
+        </form>
+
+        <h3 class="message">{{message}}</h3>
+        <div class="links-container">
+            <a class="home-link" href="/api/">Home</a>
+            <a class="home-link" href="/api/{{id}}">back to client details</a>
+        </div>
     </div>
 
-    
+
 </body>
+
 </html>

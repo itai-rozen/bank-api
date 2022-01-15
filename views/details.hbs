@@ -1,81 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}|client details</title>
+    <link rel="stylesheet" href="/css/homepage.css">
+    <link rel="stylesheet" href="/css/{{style}}">
     <style>
-        body {
-            width: 100vw;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .client-card {
-            border: 2px solid black;
-            border-radius: 12px;
-            font-size: 2rem;
-            display: flex;
-            flex-direction: column;
-            padding: 30px 60px;
-        }
-        .header-container {
-            display: flex;
-            justify-content: space-around;
-        }
-        .links-container {
-            width: 90%;
-            text-align: center;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-        a { 
-            text-decoration: none;
-            color: #780000; 
-            padding: 0 10px;
-            }
-        img {
-            border-radius: 15px;
-        }
+
     </style>
 </head>
+
 <body>
-    <h1>Client details</h1>
-        <a href="/api">Home</a>
-    <div class="client-card">
-        <form action="/api/{{client.passportId}}/delete" method="POST"><input type="submit" value="X"></form>
-        <div class="header-container">
-        <h3>
-        {{client.fullName}}
-        </h3>
-        <img src="https://thispersondoesnotexist.com/image" width="200px" alt="bank client">
-        </div>
-        <p>
-        ID: 
-        {{client.passportId}}
-        </p>
-        <p>Cash: 
-        {{client.cash}}
-        </p>
-        <p>Credit: 
-        {{client.credit}} 
-        </p>
-        <p>Active status: 
-        {{client.isActive}}
-        </p>
-        <div class="links-container">
-        <a href="/api/{{client.passportId}}/withdraw">Withdraw from client</a>
-        <a href="/api/{{client.passportId}}/deposit">deposit to client</a>
-        <a href="/api/{{client.passportId}}/updateCredit">update credit</a>
+    <div class="details-container">
+        <h1>Client details</h1>
+        <a class="home-link" href="/api">Home</a>
+        <div class="client-card">
+            <form class="close-form" action="/api/{{client.passportId}}/delete" method="POST">
+                <input type="submit" value="X">
+            </form>
+            <div class="header-container">
+                <h2>
+                    {{client.fullName}}
+                </h2>
+                <img src="https://thispersondoesnotexist.com/image" width="200px" alt="bank client">
+            </div>
+            <p>
+                ID:
+                {{client.passportId}}
+            </p>
+            <p>Cash:
+                {{client.cash}}
+            </p>
+            <p>Credit:
+                {{client.credit}}
+            </p>
+            <p>Active status:
+                {{client.isActive}}
+            </p>
+            <div class="links-container">
+                <a href="/api/{{client.passportId}}/withdraw">Withdraw from client</a>
+                <a href="/api/{{client.passportId}}/deposit">deposit to client</a>
+                <a href="/api/{{client.passportId}}/updateCredit">update credit</a>
+            </div>
         </div>
     </div>
 </body>
+
 </html>
