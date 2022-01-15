@@ -77,7 +77,7 @@ app.post('/api/add', (req,res) => {
 })
 // transfer cash from user to user
 app.get('/api/transfer', (req,res) => {
-    res.render('transfer')
+    res.render('transfer', {title:'Shmeckle Bank'})
 })
 app.post('/api/transfer', (req,res) => {
     const { fromId, toId, amount } = req.body
@@ -116,7 +116,7 @@ app.post('/api/filter', (req,res) => {
 app.get('/api/:id',(req,res) => {
     const { id } = req.params
     const chosenClient = getClient(id)
-    if (chosenClient) res.render('details',{ style:'details.css', client:chosenClient})
+    if (chosenClient) res.render('details',{ style:'details.css',title:'Shmeckle Bank', client:chosenClient})
     else res.status(400).send('client doesnt exist')
 })
 
@@ -184,4 +184,4 @@ app.post('/api/:id/delete', (req,res) => {
 
 
 
-app.listen(PORT, () => console.log(`listening on port ${PORT}`))
+app.listen(process.env.PORT || PORT, () => console.log(`listening on port ${PORT}`))

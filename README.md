@@ -11,3 +11,6 @@ When it was just the one file I tried putting the css in 'public' folder and app
 After more hbs files were added to the mix something went wrong and i couldnt figure out what.
 hopefully i'll get it at some point :) 
 in the meantime im styling with <style> tags in each hbs file which doesnt feel like best practice, but at least the nav bar have some colors.
+##### 
+Alright I figured out the styling bug! had to add public directory and serve it as static. Also had to put css
+files on /css directory in order to fetch them. it looks great now :D 
